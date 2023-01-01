@@ -39,7 +39,7 @@ jobs:
         shell: bash
         run: |          
           ./spine-godot/build/setup.sh $GODOT_TAG false
-          ./spine-godot/build/build.sh release_debug false
+          ./spine-godot/build/build.sh release_debug false godot.windows.opt.tools.64.exe
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
@@ -68,7 +68,7 @@ jobs:
         shell: bash
         run: |          
           ./spine-godot/build/setup.sh $GODOT_TAG false
-          ./spine-godot/build/build.sh release_debug true
+          ./spine-godot/build/build.sh release_debug true godot.windows.opt.tools.64.mono.exe
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
@@ -92,7 +92,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install build-essential scons pkg-config libx11-dev libxcursor-dev libxinerama-dev libgl1-mesa-dev libglu-dev libasound2-dev libpulse-dev libudev-dev libxi-dev libxrandr-dev
           ./spine-godot/build/setup.sh $GODOT_TAG false
-          ./spine-godot/build/build.sh release_debug false
+          ./spine-godot/build/build.sh release_debug false godot.x11.opt.tools.64
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
