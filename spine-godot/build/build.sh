@@ -4,12 +4,12 @@ set -e
 dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 pushd $dir > /dev/null
 
-if [ ! "$#" -eq 1 ]; then
-	echo "Usage: ./build.sh <target>"
+if [ ! "$#" -eq 3 ]; then
+	echo "Usage: ./build.sh <target> <mono> <executable>"
 	echo
 	echo "e.g.:"
-	echo "       ./build.sh release_debug"
-	echo "       ./build.sh debug"
+	echo "       ./build.sh release_debug false godot.x11.opt.tools.64"
+	echo "       ./build.sh debug true godot.x11.opt.tools.64.mono"
 	echo	
 	exit 1
 fi
