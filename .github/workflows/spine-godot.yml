@@ -73,8 +73,8 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: godot-editor-windows.zip
-          path: spine-godot/godot/bin/godot.windows.opt.tools.64.exe
+          name: godot-editor-windows-mono.zip
+          path: spine-godot/godot/bin/godot.windows.opt.tools.64.mono.exe
 
   godot-editor-linux:
     runs-on: ubuntu-18.04
