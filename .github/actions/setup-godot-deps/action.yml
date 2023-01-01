@@ -21,6 +21,9 @@ runs:
         
     - name: Setup msbuild
       uses: microsoft/setup-msbuild@v1.1
+      
+    - name: Setup mono
+      run: choco install mono
 
     - name: Setup scons
       shell: bash
