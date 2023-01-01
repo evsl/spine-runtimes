@@ -70,7 +70,7 @@ else
 		scons $target tools=yes custom_modules="../spine_godot" module_mono_enabled=yes mono_glue=no
 		
 		# generate glue sources
-		cmd='$executable --generate-mono-glue modules/mono/glue'
+		cmd='bin/$executable --generate-mono-glue modules/mono/glue'
 		eval "$cmd";
 		
 		# build binaries normally
