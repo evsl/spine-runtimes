@@ -7,6 +7,9 @@ inputs:
   python-arch:
     description: The python architecture.
     default: "x64"
+  vs-version:
+    description: The visual studio version to use.
+    default: '[17.0)'
 runs:
   using: "composite"
   steps:
@@ -18,6 +21,12 @@ runs:
         python-version: ${{ inputs.python-version }}
         # Optional - x64 or x86 architecture, defaults to x64
         architecture: ${{ inputs.python-arch }}
+        
+    - name: Setup msbuild
+      uses: microsoft/setup-msbuild@v1.1
+      with:
+        # VS Extension version syntax of a visual studio version
+        vs-version: ${{ inputs.vs-version }}
 
     - name: Setup scons
       shell: bash
