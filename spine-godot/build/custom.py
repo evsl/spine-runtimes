@@ -1,5 +1,4 @@
 # list of disabled modules for faster compilation of the engine
-module_mono_enabled = "yes"
 module_arkit_enabled = "no"
 module_assimp_enabled = "no"
 module_bmp_enabled = "no"
