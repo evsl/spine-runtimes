@@ -18,13 +18,6 @@ runs:
         python-version: ${{ inputs.python-version }}
         # Optional - x64 or x86 architecture, defaults to x64
         architecture: ${{ inputs.python-arch }}
-        
-    - name: Setup msbuild
-      uses: microsoft/setup-msbuild@v1.1
-      
-    - name: Setup mono
-      shell: powershell
-      run: choco install mono
 
     - name: Setup scons
       shell: bash
