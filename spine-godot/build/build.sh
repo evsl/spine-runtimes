@@ -60,10 +60,18 @@ else
 	if [ "$OSTYPE" = "msys" ]; then
 		target="$target vsproj=yes livepp=$LIVEPP"
 	fi
-	scons $target compiledb=yes use_asan=yes custom_modules="../spine_godot" --jobs=$cpus	
+	# generate mono glue
+	scons $target tools=yes module_mono_enabled=yes mono_glue=no custom_modules="../spine_godot" --jobs=$cpus
+	if [ -f "bin/godot.x11.opt.tools.64.mono" ]; then
+		strip bin/godot.x11.opt.tools.64.mono
+		chmod a+x bin/godot.x11.opt.tools.64.mono
+		./bin/godot.x11.opt.tools.64.mono
+	fi
+	
+	scons $target compiledb=yes use_asan=yes custom_modules="../spine_godot" mono_glue=yes --jobs=$cpus	
 	if [ -f "bin/godot.x11.opt.tools.64" ]; then
-		strip bin/godot.x11.opt.tools.64
-		chmod a+x bin/godot.x11.opt.tools.64
+		strip bin/godot.x11.opt.tools.64.mono
+		chmod a+x bin/godot.x11.opt.tools.64.mono
 	fi
 fi
 popd
